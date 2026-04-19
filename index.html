@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMX Studios | Software Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0f172a; overflow-x: hidden; }
+        
+        main {
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+        }
+
+        .hidden-page { display: none !important; opacity: 0; transform: translateY(10px); }
+        .page-active { display: block !important; opacity: 1; transform: translateY(0); }
+
+        .nav-link { position: relative; transition: color 0.2s; cursor: pointer; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 1.5px; bottom: -4px; left: 0; background-color: #1e40af; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Legal Content Styling */
+        .legal-content h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 900; margin-bottom: 1.5rem; letter-spacing: -0.04em; line-height: 1; color: #0f172a; }
+        .legal-content h2 { font-size: 1.25rem; font-weight: 800; margin-top: 2.5rem; margin-bottom: 1rem; color: #1e40af; text-transform: uppercase; letter-spacing: 0.05em; }
+        .legal-content p { margin-bottom: 1.25rem; line-height: 1.7; color: #475569; font-size: 1rem; }
+        .legal-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem; color: #475569; }
+        .legal-content li { margin-bottom: 0.5rem; }
+        
+        .section-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: #94a3b8; margin-bottom: 1.5rem; display: block; }
+        
+        .service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #f1f5f9; }
+        .service-card:hover { border-color: #3b82f6; background-color: #f8fafc; transform: translateY(-4px); }
+
+        .logo-img { height: 60px; width: auto; display: block; object-fit: contain; }
+
+        .icon-box {
+            width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+            background: #f1f5f9; border-radius: 10px; margin-bottom: 1.5rem; color: #1e40af;
+        }
+
+        input, select, textarea { 
+            background-color: #f8fafc !important; border: 1px solid #e2e8f0 !important; transition: all 0.2s ease;
+        }
+        input:focus, select:focus, textarea:focus { 
+            border-color: #3b82f6 !important; background-color: #ffffff !important;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.05); outline: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-100 selection:text-blue-900">
+
+    <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-2xl border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-8 h-28 flex justify-between items-center">
+            <a href="#home" class="flex items-center">
+                <img src="image.png" alt="OMX Studios" class="logo-img">
+            </a>
+            
+            <div class="hidden lg:flex gap-12 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500">
+                <a href="#home/capabilities" class="nav-link">Capabilities</a>
+                <a href="#home/services" class="nav-link">Services</a>
+                <a href="#home/portfolio" class="nav-link">Portfolio</a>
+                <a href="#home/contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="#home/inquiry" class="bg-slate-900 text-white px-8 py-3.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-blue-700 transition-all shadow-sm">
+                    Work With Us
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <main id="home-page" class="page-active">
+        <section class="relative pt-48 pb-24 px-8">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="max-w-4xl">
+                    <span class="section-label text-blue-600">Geneva, Switzerland</span>
+                    <h1 class="text-7xl md:text-[85px] font-extrabold tracking-[-0.04em] leading-[0.85] mb-10">
+                        We build high-end <span class="text-blue-600">software.</span>
+                    </h1>
+                    <p class="text-xl text-slate-500 max-w-2xl mb-12 leading-relaxed font-light">
+                        OMX Studios is a full-service development house specializing in bespoke web platforms and native mobile applications that scale.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#home/inquiry" class="bg-slate-900 text-white px-10 py-4 rounded-full font-bold text-base hover:bg-blue-600 transition-all">Start Project</a>
+                        <a href="#apextracklive" class="bg-white border border-slate-200 text-slate-900 px-10 py-4 rounded-full font-bold text-base hover:bg-slate-50 transition-all">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="capabilities" class="py-24 px-8 border-t border-slate-100">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-20">
+                    <div>
+                        <span class="section-label">Capabilities</span>
+                        <h2 class="text-4xl font-bold mb-8 leading-tight tracking-tight">Full-Cycle Digital Engineering.</h2>
+                        <p class="text-slate-500 text-lg mb-8">We take projects from initial system architecture to final deployment. Our focus is on clean code, performance optimization, and intuitive user experience.</p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="space-y-3">
+                                <h6 class="font-bold text-slate-900">Backend</h6>
+                                <p class="text-sm text-slate-500">Robust server-side logic using Go, Node.js, and Python with focus on API security.</p>
+                            </div>
+                            <div class="space-y-3">
+                                <h6 class="font-bold text-slate-900">Frontend</h6>
+                                <p class="text-sm text-slate-500">Dynamic, responsive web interfaces built with React, Tailwind, and high-performance JS.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-sm font-bold text-slate-700 bg-slate-50 p-6 rounded-2xl">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Dedicated Swift & SwiftUI Specialists
+                        </div>
+                        <div class="flex items-center gap-4 text-sm font-bold text-slate-700 bg-slate-50 p-6 rounded-2xl">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Cloud Infrastructure & DevOps (AWS / GCP)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-24 px-8 bg-slate-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="service-card bg-white p-12 rounded-[2.5rem]">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9h18"></path></svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-6">Web Development</h4>
+                        <p class="text-slate-500 leading-relaxed mb-8">We build modern web platforms from the ground up. Whether it's a complex SaaS product or a high-traffic corporate site, we prioritize speed, SEO, and long-term maintainability.</p>
+                    </div>
+                    <div class="service-card bg-white p-12 rounded-[2.5rem]">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-6">Mobile Engineering</h4>
+                        <p class="text-slate-500 leading-relaxed mb-8">Native mobile experiences that leverage the full power of hardware. We specialize in iOS and Android development, ensuring smooth animations and 100% crash-free sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="py-32 px-8">
+            <div class="max-w-7xl mx-auto">
+                <span class="section-label">Featured Case Study</span>
+                <div class="bg-white border border-slate-100 rounded-[3rem] p-12 lg:p-20 shadow-2xl relative overflow-hidden group">
+                    <div class="max-w-3xl">
+                        <h3 class="text-6xl font-extrabold tracking-tighter italic uppercase mb-8">Apex Track <span class="text-blue-600">Live</span></h3>
+                        <h4 class="text-3xl font-bold mb-8">Live Telemetry & Data Visualization.</h4>
+                        <p class="text-slate-500 text-lg leading-relaxed mb-10">Building a high-performance application to visualize driver telemetry in real-time. Processing thousands of data points per second with under 100ms latency.</p>
+                        <a href="#apextracklive" class="bg-slate-900 text-white px-10 py-4 rounded-full font-bold hover:bg-blue-600 transition-all inline-flex items-center gap-3">
+                            Open Full Case Study <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK WITH US / INQUIRY SECTION -->
+        <section id="inquiry" class="py-32 px-8 bg-slate-50">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="section-label">Project Request</span>
+                    <h2 class="text-5xl font-bold tracking-tight">Initiate an inquiry.</h2>
+                </div>
+                <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" name="name" class="p-6 rounded-2xl outline-none" placeholder="Your Name" required>
+                    <input type="email" name="email" class="p-6 rounded-2xl outline-none" placeholder="Email Address" required>
+                    <select name="subject" class="md:col-span-2 p-6 rounded-2xl outline-none appearance-none cursor-pointer">
+                        <option>App Development (iOS/Android)</option>
+                        <option>Web Platform Development</option>
+                        <option>System Architecture Consultation</option>
+                        <option>General Support/Info</option>
+                        <option>Other</option>
+                    </select>
+                    <textarea name="message" rows="5" class="md:col-span-2 p-6 rounded-2xl outline-none" placeholder="Describe your project goals..." required></textarea>
+                    <button type="submit" id="form-submit" class="md:col-span-2 py-6 bg-slate-900 text-white font-black uppercase tracking-[0.2em] text-sm rounded-2xl hover:bg-blue-700 transition-all">
+                        Send Message
+                    </button>
+                    <div id="form-status" class="md:col-span-2 text-center py-4 font-bold hidden"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- GAP BETWEEN INQUIRY AND CONTACT -->
+        <div class="h-32"></div>
+
+        <!-- CONTACT SECTION (Direct Details) -->
+        <section id="contact" class="py-32 px-8 border-t border-slate-100">
+             <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="section-label">Contact</span>
+                    <h2 class="text-5xl font-bold tracking-tight">Connect with the studio.</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="service-card bg-white p-12 rounded-[2.5rem] flex flex-col items-center text-center">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 uppercase tracking-tighter">Phone Support</h4>
+                        <p class="text-slate-500 mb-6">Available Mon-Fri, 9am - 6pm CET</p>
+                        <a href="tel:+41220000000" class="text-2xl font-black text-blue-600 hover:underline">+41 22 000 00 00</a>
+                    </div>
+                    <div class="service-card bg-white p-12 rounded-[2.5rem] flex flex-col items-center text-center">
+                        <div class="icon-box">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 uppercase tracking-tighter">Email Inquiry</h4>
+                        <p class="text-slate-500 mb-6">For general and technical inquiries</p>
+                        <a href="mailto:hello@omx-studios.com" class="text-2xl font-black text-blue-600 hover:underline">hello@omx-studios.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PROJECT DETAIL: APEX TRACK LIVE -->
+    <main id="apextracklive-page" class="hidden-page pt-48 pb-40 px-8">
+        <div class="max-w-5xl mx-auto">
+            <a href="#home" class="text-slate-400 flex items-center gap-3 mb-12 hover:text-blue-600 transition font-bold text-[10px] uppercase tracking-widest">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> Return to Studio
+            </a>
+            
+            <h1 class="text-7xl font-black text-slate-900 mb-6 italic tracking-tighter uppercase">Apex Track <span class="text-blue-600">Live</span></h1>
+            <p class="text-2xl text-slate-500 mb-20 font-light max-w-3xl">High-frequency telemetry analysis for the next generation of professional racing.</p>
+            
+            <div class="grid lg:grid-cols-3 gap-16">
+                <div class="lg:col-span-2 space-y-12 text-slate-600 text-lg leading-relaxed">
+                    <section>
+                        <h3 class="text-2xl font-black text-slate-900 mb-6 uppercase tracking-tighter">The Architecture</h3>
+                        <p>We built a proprietary data pipe using binary serialization instead of JSON. This allowed the app to ingest 1,000+ data points per second (GPS, Throttle, Brake, Steering Angle) with less than 80ms total latency from car to screen.</p>
+                    </section>
+                    <section>
+                        <h3 class="text-2xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Native Performance</h3>
+                        <p>Leveraging Apple's Metal framework, the app renders complex track geometry and G-force maps entirely on the GPU. This ensures the main UI thread remains fluid even during high-intensity data bursts.</p>
+                    </section>
+                </div>
+                <div class="bg-slate-50 p-10 rounded-[2.5rem] h-fit">
+                    <h5 class="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest text-blue-600">Project Stack</h5>
+                    <ul class="space-y-4 text-sm font-bold">
+                        <li class="flex justify-between border-b border-slate-200 pb-2"><span class="text-slate-400 font-medium">Platform</span> <span>Swift / SwiftUI</span></li>
+                        <li class="flex justify-between border-b border-slate-200 pb-2"><span class="text-slate-400 font-medium">Real-time</span> <span>WebSockets</span></li>
+                        <li class="flex justify-between"><span class="text-slate-400 font-medium">Rendering</span> <span>Metal API</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-24 pt-16 border-t border-slate-100 flex flex-col items-center">
+                <span class="section-label">App Specific Documents</span>
+                <div class="flex gap-4">
+                    <a href="#apextracklive/tos" class="px-10 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-blue-600 transition shadow-lg">Terms of Service</a>
+                    <a href="#apextracklive/pp" class="px-10 py-4 border border-slate-200 text-slate-900 rounded-full font-bold hover:bg-slate-50 transition">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- STUDIO TERMS -->
+    <main id="tos-page" class="hidden-page pt-48 pb-40 px-8">
+        <div class="max-w-3xl mx-auto legal-content">
+            <a href="#home" class="text-slate-400 flex items-center gap-2 mb-12 hover:text-blue-600 transition font-bold text-[10px] uppercase tracking-widest">← Back to Home</a>
+            <h1>Studio Terms</h1>
+            <p class="text-xl font-bold text-blue-600 mb-10 italic">Standard Service Agreement</p>
+            
+            <h2>1. Engagement & Services</h2>
+            <p>These Terms govern your interaction with OMX Studios LLC. By initiating an inquiry or engaging our services, you agree to these terms. All software engineering services are provided under a separate Master Services Agreement (MSA) or Statement of Work (SOW) which details specific milestones, costs, and deliverables.</p>
+            
+            <h2>2. Intellectual Property</h2>
+            <p>Unless otherwise agreed in a written SOW, all pre-existing frameworks, code libraries, and proprietary development tools used by the Studio remain the exclusive property of the Studio. Upon full payment for a project, the Client is granted a license or ownership of the specific final deliverables as defined in the project contract.</p>
+            
+            <h2>3. Confidentiality</h2>
+            <p>We treat all client project details with the strictest confidentiality. We expect clients to respect our proprietary methodologies and trade secrets shared during the consultation process.</p>
+            
+            <h2>4. Limitation of Liability</h2>
+            <p>OMX Studios provides architecture and engineering services on an "as-is" basis. While we adhere to the highest industry standards for security and performance, we are not liable for indirect, incidental, or consequential damages arising from the use or inability to use the developed software once handed over to the Client.</p>
+            
+            <h2>5. Governing Law</h2>
+            <p>These terms and any disputes arising from studio services are governed by the laws of Switzerland. Exclusive jurisdiction is granted to the courts of Geneva.</p>
+        </div>
+    </main>
+
+    <!-- STUDIO PRIVACY -->
+    <main id="pp-page" class="hidden-page pt-48 pb-40 px-8">
+        <div class="max-w-3xl mx-auto legal-content">
+            <a href="#home" class="text-slate-400 flex items-center gap-2 mb-12 hover:text-blue-600 transition font-bold text-[10px] uppercase tracking-widest">← Back to Home</a>
+            <h1>Privacy Policy</h1>
+            <p class="text-xl font-bold text-blue-600 mb-10 italic">Data Management & Privacy</p>
+            
+            <h2>1. Information Collection</h2>
+            <p>We collect minimal data necessary to facilitate business communication. This includes:</p>
+            <ul>
+                <li>Contact information (Name, Email) provided via our inquiry form.</li>
+                <li>Technical logs (IP address, browser type) for security and analytics.</li>
+                <li>Project briefs and files submitted for consultation.</li>
+            </ul>
+            
+            <h2>2. Use of Information</h2>
+            <p>Your information is used solely to respond to inquiries, manage project workflows, and improve our website performance. We do not sell, trade, or rent your personal data to third parties.</p>
+            
+            <h2>3. Data Storage & Security</h2>
+            <p>All communication data is stored on secure, encrypted servers. We implement TLS encryption for all data in transit. Access to sensitive project data is restricted to authorized engineering personnel on a need-to-know basis.</p>
+            
+            <h2>4. Cookies & Tracking</h2>
+            <p>Our website uses essential cookies for navigation. We may use privacy-preserving analytics tools to understand site traffic without identifying individual users.</p>
+            
+            <h2>5. Your Rights</h2>
+            <p>Under Swiss Federal Act on Data Protection (FADP) and GDPR (where applicable), you have the right to request access to, correction of, or deletion of your personal data held by the Studio.</p>
+        </div>
+    </main>
+
+    <!-- APEX TOS -->
+    <main id="apextracklive/tos-page" class="hidden-page pt-48 pb-40 px-8">
+        <div class="max-w-3xl mx-auto legal-content">
+            <a href="#apextracklive" class="text-slate-400 flex items-center gap-2 mb-12 hover:text-blue-600 transition font-bold text-[10px] uppercase tracking-widest">← Back to App</a>
+            <h1>App Terms</h1>
+            <p class="text-xl font-bold text-blue-600 mb-10 italic">Apex Track Live: End User License Agreement</p>
+            
+            <h2>1. Scope of Use</h2>
+            <p>Apex Track Live is a tool for users to be able to track races in real time. It is intended to view race information, track position and car speeds. It is strictly prohibited to use the application while operating any type of vehicle.</p>
+            
+            <h2>2. Safety & Responsibility</h2>
+            <p>The user assumes all risks associated with uploading their own liveries ingame. OMX Studios is not responsible for any uploaded material violating copyright.</p>
+            
+            <h2>3. Data Accuracy</h2>
+            <p>Telemetry data depends on internet speeds and hardware specifications. We do not guarantee 100% accuracy of speed, G-force, or positioning data. We do not guarantee live data, data can be delayed up to 10 minutes or more.</p>
+            
+            <h2>4. Prohibited Conduct</h2>
+            <p>Users may not attempt to reverse-engineer the App, bypass binary serialization protocols, or scrape telemetry data from other users' sessions without explicit permission.</p>
+        </div>
+    </main>
+
+    <!-- APEX PP -->
+    <main id="apextracklive/pp-page" class="hidden-page pt-48 pb-40 px-8">
+        <div class="max-w-3xl mx-auto legal-content">
+            <a href="#apextracklive" class="text-slate-400 flex items-center gap-2 mb-12 hover:text-blue-600 transition font-bold text-[10px] uppercase tracking-widest">← Back to App</a>
+            <h1>App Privacy</h1>
+            <p class="text-xl font-bold text-blue-600 mb-10 italic">Apex Track Live: Privacy Policy</p>
+            
+            <h2>1. Telemetry Data Handling</h2>
+            <p>Apex Track Live processes race data. By default, this data is processed locally on your device. We do not transmit live telemetry to our servers. All data gets transfered via a direct connection to the data API.</p>
+            
+            <h2>2. Internet Data</h2>
+            <p>The App requires high-speed internet to function. This data is used only for data transfer. We do not use your internet data to track your location or any other similar type of data.</p>
+            
+            <h2>3. Third-Party Integrations</h2>
+            <p>If you connect third-party hardware (e.g., Bluetooth OBD-II dongles), data is retrieved directly by the App. Refer to your hardware manufacturer's privacy policy for their specific data handling practices.</p>
+            
+            <h2>4. Data Deletion</h2>
+            <p>Users can delete all recorded sessions and telemetry data directly within the App settings. Once deleted, this data is irrecoverable as we do not maintain persistent backups of user telemetry.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-24 px-8 border-t border-slate-100 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-16 mb-20">
+                <div class="max-w-xs">
+                    <img src="image.png" alt="OMX Logo" class="logo-img mb-8">
+                    <p class="text-sm text-slate-400 leading-relaxed uppercase tracking-widest font-bold">Geneva, Switzerland</p>
+                </div>
+                <div class="grid grid-cols-2 gap-20">
+                    <div class="space-y-4">
+                        <p class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Studio</p>
+                        <ul class="space-y-2 text-sm text-slate-500 font-bold">
+                            <li><a href="#home/capabilities" class="hover:text-blue-600">Capabilities</a></li>
+                            <li><a href="#home/services" class="hover:text-blue-600">Services</a></li>
+                            <li><a href="#apextracklive" class="hover:text-blue-600">Portfolio</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Legal</p>
+                        <ul class="space-y-2 text-sm text-slate-500 font-bold">
+                            <li><a href="#tos" class="hover:text-blue-600">Studio Terms</a></li>
+                            <li><a href="#pp" class="hover:text-blue-600">Studio Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-slate-50 pt-10 gap-6">
+                <p class="text-[10px] text-slate-300 font-black uppercase tracking-[0.3em]">&copy; 2026 OMX Studios LLC &bull; Geneva</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const formspreeId = "xeelyogo"; 
+
+        function router() {
+            const rawHash = window.location.hash.replace('#', '') || 'home';
+            const allPages = document.querySelectorAll('main');
+            let targetPage = document.getElementById(`${rawHash}-page`);
+            let sectionId = null;
+
+            if (!targetPage && rawHash.includes('/')) {
+                const parts = rawHash.split('/');
+                const basePage = document.getElementById(`${parts[0]}-page`);
+                if (basePage) {
+                    targetPage = basePage;
+                    sectionId = parts[1];
+                }
+            }
+
+            if (!targetPage) targetPage = document.getElementById('home-page');
+
+            allPages.forEach(p => {
+                p.style.opacity = '0';
+                p.style.transform = 'translateY(10px)';
+            });
+
+            setTimeout(() => {
+                allPages.forEach(p => {
+                    p.classList.add('hidden-page');
+                    p.classList.remove('page-active');
+                });
+                
+                targetPage.classList.remove('hidden-page');
+                targetPage.classList.add('page-active');
+                
+                requestAnimationFrame(() => {
+                    targetPage.style.opacity = '1';
+                    targetPage.style.transform = 'translateY(0)';
+                    
+                    if (sectionId) {
+                        const el = document.getElementById(sectionId);
+                        if (el) {
+                            const yOffset = -120;
+                            const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                            window.scrollTo({top: y, behavior: 'smooth'});
+                        }
+                    } else {
+                        window.scrollTo({top: 0, behavior: 'smooth'});
+                    }
+                });
+            }, 300);
+        }
+
+        window.addEventListener('hashchange', router);
+        window.addEventListener('load', router);
+
+        document.getElementById('contact-form').onsubmit = async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('form-submit');
+            const status = document.getElementById('form-status');
+            btn.disabled = true;
+            btn.innerText = "SENDING...";
+            status.classList.remove('hidden');
+            status.innerText = "Processing inquiry...";
+
+            const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+                method: "POST",
+                body: new FormData(e.target),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (res.ok) {
+                status.innerText = "INQUIRY SENT. WE WILL RESPOND SHORTLY.";
+                status.className = "md:col-span-2 text-center py-4 font-bold text-blue-600 uppercase text-xs tracking-widest";
+                e.target.reset();
+                btn.innerText = "MESSAGE SENT";
+            } else {
+                status.innerText = "ERROR SENDING. PLEASE TRY AGAIN.";
+                status.className = "md:col-span-2 text-center py-4 font-bold text-red-500 uppercase text-xs tracking-widest";
+                btn.disabled = false;
+                btn.innerText = "SEND MESSAGE";
+            }
+        };
+    </script>
+</body>
+</html>
